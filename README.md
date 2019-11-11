@@ -16,15 +16,11 @@ You only need to install python and numpy to run this project. You can install t
 
 On Linux:
 
-.. code:: shell
-
 	sudo apt-get update
 	sudo apt-get install python3.6 python3-pip
 	sudo pip3 install numpy
 
 On OSX:
-
-.. code:: shell
 
 	brew install python
 	sudo pip3 install numpy
@@ -36,8 +32,6 @@ Running
 =======
 
 Now that you have install python, you can run the project. To do so, you must be at directory AI, and enter command:
-
-.. code:: shell
 
 	python3 main.py
 
