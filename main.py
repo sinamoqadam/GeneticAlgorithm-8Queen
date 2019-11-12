@@ -4,7 +4,7 @@ from geneticAlgorithm import initializeRandomPopulation, crossover, mutation, so
 from queenBoard import printBoard
 
 populationSize = 20 # Number of chromosomes
-chromosomeSize = 8 # Number of queens (genes in each chromosome)
+chromosomeSize = 9 # Number of queens (genes in each chromosome)
 iterations = 1000 # Number of iterations that genetic algorithm runs
 mutationCount = 5 # Number of mutations in each iteration
 crossoverCount = 5 # Number of crossovers in each iteration
@@ -21,6 +21,6 @@ for iteration in range(0, iterations): # run from iteration 0 to total number of
 print("position vector of queens: " + str(population[0]))
 print("number of queens threats: " + str(countThreat(population[0])))
 
-printBoard(population[0])
+printBoard(population[0], chromosomeSize)
 
 

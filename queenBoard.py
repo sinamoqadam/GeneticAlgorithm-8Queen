@@ -1,11 +1,11 @@
 import numpy as np
 
 #print chess board with queens as 'O' and empty positions as '-'
-def printBoard(formation):
+def printBoard(formation, chromosomeSize):
     board = []
-    for row in range(0, 8):
+    for row in range(0, chromosomeSize):
         array = []
-        for column in range(0, 8):
+        for column in range(0, chromosomeSize):
             if row == formation[column]:
                 array.append('O')
             else:
