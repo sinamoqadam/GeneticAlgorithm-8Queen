@@ -1,6 +1,6 @@
 import numpy as np
 
-#print checss board with queens as 'O' and empty positions as '-'
+#print chess board with queens as 'O' and empty positions as '-'
 def printBoard(formation):
     board = []
     for row in range(0, 8):
