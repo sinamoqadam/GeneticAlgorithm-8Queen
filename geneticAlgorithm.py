@@ -1,20 +1,18 @@
 import numpy as np
 import random
 
-def countThreat (chromosome):
-    length = len(chromosome)
-
+def countThreat (population):
     threat = 0
 
     #count threats for each queen
-    for currentGene in range(0, length):
+    for currentGene in range(0, len(population)):
 
         #queen[x,y]
-        currentQueen = [currentGene, chromosome[currentGene]]
+        currentQueen = [currentGene, population[currentGene]]
 
         #check all queens before current queen for threats
         for previousGene in range (0, currentGene):
-            previousQueen = [previousGene, chromosome[previousGene]]
+            previousQueen = [previousGene, population[previousGene]]
 
             slope = (currentQueen[1] - previousQueen[1]) / (currentQueen[0] - previousQueen[0])
 
@@ -35,8 +33,8 @@ def countThreat (chromosome):
 
 def initializeRandomPopulation (populationSize, chromosomeSize): # initializing population randomly
     population = []
-    for i in range(1, populationSize+1):
-        population.append(np.random.random_integers(low=0, high=7, size=(chromosomeSize,))) # using numpy library to initialize population with size of chromosome size with random values between 0 to 7
+    for i in range(populationSize):
+        population.append(np.random.random_integers(low=0, high=chromosomeSize-1, size=(chromosomeSize))) # using numpy library to initialize population with size of chromosome size with random values between 0 to 7
 
     return population
 
@@ -55,11 +53,11 @@ def crossover(population, crossoverCount):
         crossoverPoint = random.randint(1, chromosomeLenght-1) # selects point for cross over randomly between genes 1 to 6
 
         child1 = [] # initialize first child
-        child1.extend(crossoverParent1[:crossoverPoint]) # add genes from first parent from first gene to cross over point gene
-        child1.extend(crossoverParent2[crossoverPoint:]) # add genes from second parent from cross over gene to last gene
+        child1.extend(crossoverParent1[:crossoverPoint]) # add genes of first parent from first gene to cross over point gene
+        child1.extend(crossoverParent2[crossoverPoint:]) # add genes of second parent from cross over gene to last gene
         child2 = [] # initialize second child
-        child2.extend(crossoverParent2[:crossoverPoint]) # add genes from second parent from first gene to cross over point gene
-        child2.extend(crossoverParent1[crossoverPoint:]) # add genes from first parent from cross over gene to last gene
+        child2.extend(crossoverParent2[:crossoverPoint]) # add genes of second parent from first gene to cross over point gene
+        child2.extend(crossoverParent1[crossoverPoint:]) # add genes of first parent from cross over gene to last gene
 
         population.append(child1) # add first child to whole population
         population.append(child2) # add second child to whole population
